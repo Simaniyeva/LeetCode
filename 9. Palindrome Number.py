@@ -1,13 +1,15 @@
-def climbStairs(n):
-    if n==0 or n==1:
-        return n
-    first=1
-    second=2
-    for i in range(3,n+1):
-            next=first+second
-            first=second
-            second=next
-    return second
-
-num=int(input())
-print(climbStairs(num))     
+def isPalindrome(self,x):
+    if x<0:
+        return False
+    if x==0:
+        return True
+    if x%10==0:
+        return False
+    original=x
+    reversed=0
+    while x>0:
+        last=x%10
+        reversed=reversed*10+last
+        x//=10
+    return reversed==original
+    
