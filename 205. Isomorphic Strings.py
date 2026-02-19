@@ -5,12 +5,15 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        s_mapping={}
-        t_mapping={}
+        s_t={}
+        t_s={}
         
         for i in range(len(s)):
-            e1,e2=s_mapping[i],t_mapping[i]
-            if(e1 in s_mapping and s_mapping[e1]!=e2) or (e2 in t_mapping and t_mapping[e2]!=e1):
+            e1, e2=s[i], t[i]
+
+            if((e1 in s_t and s_t[e1]!=e2) or (e2 in t_s and t_s[e2]!=e1)):
                 return False
-            s_mapping[e1]=e2
-            t_mapping[e2]=e1
+
+            s_t[e1]=e2
+            t_s[e2]=e1
+        return True
